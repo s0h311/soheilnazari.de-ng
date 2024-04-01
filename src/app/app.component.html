@@ -1,2 +1,8 @@
-<app-navigation />
+<header class="mb-10 md:mb-20">
+  @if (deviceTypeService.isMobile()) {
+  <app-mobile-sidebar />
+  } @else {
+  <app-navigation />
+  }
+</header>
 <router-outlet></router-outlet>

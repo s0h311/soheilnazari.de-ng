@@ -3,9 +3,14 @@
 @tailwind utilities;
 
 :root {
+  font-family: Kanit, 'Segoe UI', Verdana;
   @apply bg-slate-950 text-slate-200;
 }
 
 h1 {
   @apply text-slate-100;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r inline-block text-transparent bg-clip-text;
 }

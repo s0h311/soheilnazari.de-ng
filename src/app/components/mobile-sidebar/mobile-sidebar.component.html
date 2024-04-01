@@ -1,0 +1,59 @@
+<div class="sticky pt-5 left-0 flex w-full justify-between">
+  <a routerLink="/">
+    <img
+      ngSrc="assets/sn-logo-1.png"
+      alt="logo"
+      width="40"
+      height="40"
+      priority
+    />
+  </a>
+  <div class="flex items-center gap-3">
+    @for (socialLink of socialLinks; track socialLink.url) {
+    <a [href]="socialLink.url" target="_blank">
+      <img
+        [ngSrc]="socialLink.icon"
+        [alt]="socialLink.alt"
+        width="25"
+        height="25"
+        priority
+      />
+    </a>
+    }
+
+    <button class="ml-2" (click)="showSidebar.set(true)">
+      <img
+        ngSrc="assets/menu-icon.svg"
+        alt="menu"
+        width="30"
+        height="30"
+        priority
+      />
+    </button>
+  </div>
+</div>
+
+<aside
+  class="h-screen w-[50dvw] fixed top-0 bg-gray-900 text-white p-9 pr-5 flex flex-col gap-7 rounded-r-lg z-10 duration-500 ease-out"
+  [class]="showSidebar() ? 'right-0' : 'right-[-100%]'"
+>
+  <button class="self-end" (click)="showSidebar.set(false)">
+    <img
+      ngSrc="assets/close-icon.svg"
+      alt="menu"
+      width="30"
+      height="30"
+      priority
+    />
+  </button>
+
+  @for (link of links; track link) {
+  <a
+    class="hover:text-orange-300"
+    [class]="router.url === link.path ? 'underline' : ''"
+    [routerLink]="link.path"
+    (click)="showSidebar.set(false)"
+    >{{ link.title }}</a
+  >
+  }
+</aside>
