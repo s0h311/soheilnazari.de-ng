@@ -1,6 +1,10 @@
 {
   "name": "mypage-ng",
   "version": "0.0.0",
+  "engines": {
+    "node": "20.*",
+    "npm": "10.*"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
